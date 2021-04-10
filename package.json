@@ -1,0 +1,120 @@
+{
+	"name": "geliver",
+	"displayName": "Geliver",
+	"description": "FrontendUI for connecting oscrud application",
+	"publisher": "oscrud",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.55.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:geliver.open_ui"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "geliver.open_ui",
+				"title": "Open Geliver Webview"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Geliver",
+			"properties": {
+				"geliver.servers": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string",
+								"description": "server's name"
+							},
+							"connection": {
+								"type": "string",
+								"description": "server's connection. etc http://localhost:1234"
+							},
+							"password": {
+								"type": "string",
+								"description": "dev server password"
+							}
+						}
+					}
+				},
+				"geliver.app_theme": {
+					"type": "string",
+					"default": "dark",
+					"enum": [
+						"dark",
+						"light"
+					],
+					"description": "Specify geliver app theme"
+				},
+				"geliver.edtior_theme": {
+					"type": "string",
+					"default": "dracula",
+					"enum": [
+						"ambiance",
+						"chaos",
+						"chrome",
+						"clouds",
+						"clouds_midnight",
+						"cobalt",
+						"crimson_editor",
+						"dawn",
+						"dracula",
+						"dreamweaver",
+						"eclipse",
+						"github",
+						"gob",
+						"gruvbox",
+						"idle_fingers",
+						"iplastic",
+						"katzenmilch",
+						"kr_theme",
+						"kuroir",
+						"merbivore",
+						"merbivore_soft",
+						"monokai",
+						"mono_industrial",
+						"pastel_on_dark",
+						"solarized_dark",
+						"solarized_light",
+						"sqlserver",
+						"terminal",
+						"textmate",
+						"tomorrow",
+						"tomorrow_night",
+						"tomorrow_night_blue",
+						"tomorrow_night_bright",
+						"tomorrow_night_eighties",
+						"twilight",
+						"vibrant_ink",
+						"xcode"
+					],
+					"description": "Specify geliver editor theme"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "yarn run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.55.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.19.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.2.1",
+		"typescript": "^4.1.3",
+		"vscode-test": "^1.5.0"
+	}
+}
