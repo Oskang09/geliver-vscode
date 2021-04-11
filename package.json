@@ -4,6 +4,9 @@
 	"description": "FrontendUI for connecting oscrud application",
 	"publisher": "oscrud",
 	"version": "0.0.1",
+	"repository": {
+		"url": "https://github.com/oscrud/geliver-vs"
+	},
 	"engines": {
 		"vscode": "^1.55.0"
 	},
@@ -104,7 +107,8 @@
 	"scripts": {
 		"lint": "eslint .",
 		"pretest": "yarn run lint",
-		"test": "node ./test/runTest.js"
+		"test": "node ./test/runTest.js",
+		"package": "vsce package"
 	},
 	"devDependencies": {
 		"@types/vscode": "^1.55.0",
