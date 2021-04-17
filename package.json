@@ -3,7 +3,7 @@
 	"displayName": "Geliver",
 	"description": "FrontendUI for connecting oscrud application",
 	"publisher": "Oskang09",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"repository": {
 		"url": "https://github.com/oscrud/geliver-vs"
 	},

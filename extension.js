@@ -39,9 +39,9 @@ function activate(context) {
 			window.editorTheme = "${editorTheme}";
 			window.servers = '${JSON.stringify(servers)}';
 		  </script>
-		  <script type="module" crossorigin src="${distBase}/assets/index.3577ab96.js"></script>
+		  <script type="module" crossorigin src="${distBase}/assets/index.bcfd9fdb.js"></script>
 			<link rel="modulepreload" href="${distBase}/assets/vendor.fa37ab51.js">
-			<link rel="stylesheet" href="${distBase}/assets/vendor.8c4ccc8e.css">
+			<link rel="stylesheet" href="${distBase}/assets/vendor.1a83f3cc.css">
 			<link rel="stylesheet" href="${distBase}/assets/index.6a640632.css">
 		  <link rel="manifest" href="${distBase}/manifest.webmanifest"></head>
 		  <link href="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
