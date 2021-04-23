@@ -1,11 +1,11 @@
 {
 	"name": "geliver",
 	"displayName": "Geliver",
-	"description": "FrontendUI for connecting oscrud application",
+	"description": "FrontendUI for connecting application integrated with geliver devserver.",
 	"publisher": "Oskang09",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"repository": {
-		"url": "https://github.com/oscrud/geliver-vs"
+		"url": "https://github.com/oscrud/geliver-vscode"
 	},
 	"engines": {
 		"vscode": "^1.55.0"
