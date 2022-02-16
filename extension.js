@@ -1,11 +1,13 @@
 const vscode = require('vscode');
 const path = require('path');
+const fs = require('fs');
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
 	let panel = undefined;
+
 	let disposable = vscode.commands.registerCommand('geliver.open_ui', async function () {
 		const config = vscode.workspace.getConfiguration('geliver');
 		const appTheme = config.get('app_theme', 'dark');
@@ -13,7 +15,12 @@ function activate(context) {
 		const servers = config.get('servers', []);
 		const distFolder = vscode.Uri.file(path.join(context.extensionPath, 'dist'));
 		const assetsFolder = vscode.Uri.file(path.join(context.extensionPath, 'assets'))
+		const distBase = panel.webview.asWebviewUri(distFolder).toString();
 		const columnToShowIn = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.viewColumn : undefined;
+		const html = fs.readFileSync(
+			vscode.Uri.file(path.join(context.extensionPath, 'dist', 'index.html')).fsPath,
+			{ encoding: 'utf8' }
+		);
 
 		if (panel) {
 			panel.reveal(columnToShowIn);
@@ -21,46 +28,26 @@ function activate(context) {
 			panel = vscode.window.createWebviewPanel(
 				'geliver',
 				'Geliver',
-				vscode.ViewColumn.One,
+				vscode.ViewColumn.Active,
 				{
 					enableScripts: true,
+					retainContextWhenHidden: true,
 					localResourceRoots: [distFolder, assetsFolder]
 				}
 			);
 
-			const distBase = panel.webview.asWebviewUri(distFolder).toString();
 			panel.onDidDispose(() => { panel = undefined }, context.subscriptions);
 			panel.title = "Geliver UI"
-			panel.webview.html = `
-			<!DOCTYPE html>
-			<html lang="en">
-			
-			<head>
-			  <meta charset="UTF-8" />
-			  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			  <title>Geliver</title>
-			
-			  <script>
+			panel.webview.html = html.replaceAll("/geliver", distBase).replaceAll("<!-- inject-placeholder -->", `
+			<script>
 				window.mode = "vscode-webview";
 				window.base = "${distBase}";
 				window.appTheme = "${appTheme}";
 				window.editorTheme = "${editorTheme}";
 				window.servers = '${JSON.stringify(servers)}';
-			  </script>
-			  <script type="module" crossorigin src="${distBase}/assets/index.bcfd9fdb.js"></script>
-				<link rel="modulepreload" href="${distBase}/assets/vendor.fa37ab51.js">
-				<link rel="stylesheet" href="${distBase}/assets/vendor.1a83f3cc.css">
-				<link rel="stylesheet" href="${distBase}/assets/index.6a640632.css">
-			  <link rel="manifest" href="${distBase}/manifest.webmanifest"></head>
-			  <link href="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
-			</head>
-			
-			<body>
-			  <div id="root"></div>
-			</body>
-			
-			</html>
-			`;
+			</script>
+			<link href="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+		`)
 		}
 	});
 

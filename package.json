@@ -3,9 +3,9 @@
 	"displayName": "Geliver",
 	"description": "FrontendUI for connecting application integrated with geliver devserver.",
 	"publisher": "Oskang09",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"repository": {
-		"url": "https://github.com/oscrud/geliver-vscode"
+		"url": "https://github.com/Oskang09/geliver-vscode"
 	},
 	"engines": {
 		"vscode": "^1.55.0"

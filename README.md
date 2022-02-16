@@ -12,7 +12,7 @@ Webview version of Geliver UI for support internally in vscode editor.
 
 ## Requirements
 
-* Only work with oscrud's applicaion
+* Support basic GRPC server with `geliver-devserver` registered
 
 ## Extension Settings
 
@@ -24,10 +24,5 @@ This extension contributes the following settings:
 
 ## Known Issues
 
-Currently webview is not able to import & export data, even tried local path believe it's some library not supported. 
-
-## Release Notes
-
-### 1.0.0
-
-Initial release of geliver.
+1. Currently webview is not able to import & export data, even tried local path believe it's some library not supported. 
+2. GRPC Setting will be bypass etc `UnaryInterceptor`, because currently is calling GRPC with go reflection instead grpc client.
