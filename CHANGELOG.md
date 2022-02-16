@@ -12,3 +12,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Update `retain` setting for webview to prevent refreshing when changing tab
 - Update `geliver` version
+
+## [0.0.5]
+
+- Fix unable open `geliver` ui

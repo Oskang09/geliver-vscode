@@ -15,7 +15,6 @@ function activate(context) {
 		const servers = config.get('servers', []);
 		const distFolder = vscode.Uri.file(path.join(context.extensionPath, 'dist'));
 		const assetsFolder = vscode.Uri.file(path.join(context.extensionPath, 'assets'))
-		const distBase = panel.webview.asWebviewUri(distFolder).toString();
 		const columnToShowIn = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.viewColumn : undefined;
 		const html = fs.readFileSync(
 			vscode.Uri.file(path.join(context.extensionPath, 'dist', 'index.html')).fsPath,
@@ -36,6 +35,7 @@ function activate(context) {
 				}
 			);
 
+			const distBase = panel.webview.asWebviewUri(distFolder).toString();
 			panel.onDidDispose(() => { panel = undefined }, context.subscriptions);
 			panel.title = "Geliver UI"
 			panel.webview.html = html.replaceAll("/geliver", distBase).replaceAll("<!-- inject-placeholder -->", `
