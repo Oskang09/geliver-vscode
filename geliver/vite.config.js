@@ -1,6 +1,6 @@
 import path from 'path'
 import reactRefresh from '@vitejs/plugin-react-refresh'
-import { VitePWA } from 'vite-plugin-pwa'
+// import { VitePWA } from 'vite-plugin-pwa'
 
 /**
  * @type { import('vite').UserConfig }
@@ -13,7 +13,7 @@ export default {
         outDir: '../dist',
     },
     base: "/geliver/",
-    plugins: [reactRefresh(), VitePWA()],
+    plugins: [reactRefresh()],
     resolve: {
         alias: {
             '#': path.resolve(__dirname, "./src"),

@@ -28,3 +28,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.1.1]
 
 - Reduce bundle size by remove development files
+
+# [0.1.2]
+
+- Reduce bundle size
+- Remove service worker registration on webview

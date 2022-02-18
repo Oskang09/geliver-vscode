@@ -229,14 +229,14 @@ function activate(context) {
 
 				panel.webview.html = html.replaceAll("/geliver", distBase).replaceAll("<!-- inject-placeholder -->", `
 						<script>
-							window.mode = "vscode-webview";
 							window.base = "${distBase}";
 							window.appTheme = "${appTheme}";
 							window.editorTheme = "${editorTheme}";
 							window.autoload = '${JSON.stringify(autoload)}';
 						</script>
 						<link href="https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
-					`)
+					`
+				)
 			}
 		})
 	});
