@@ -21,29 +21,39 @@
 		"commands": [
 			{
 				"command": "geliver.open_ui",
-				"title": "Open Geliver Webview"
+				"title": "Geliver: Open Webview"
 			}
 		],
 		"configuration": {
-			"type": "object",
 			"title": "Geliver",
 			"properties": {
-				"geliver.servers": {
+				"geliver.protos": {
 					"type": "array",
+					"default": [],
 					"items": {
 						"type": "object",
 						"properties": {
 							"name": {
 								"type": "string",
-								"description": "server's name"
+								"description": "server's proto service name"
 							},
 							"connection": {
 								"type": "string",
-								"description": "server's connection. etc http://localhost:1234"
+								"description": "server's grpc server connection"
 							},
-							"password": {
-								"type": "string",
-								"description": "dev server password"
+							"path": {
+								"type": "array",
+								"description": "server's proto directories",
+								"items": {
+									"type": "string"
+								}
+							},
+							"custom": {
+								"type": "array",
+								"description": "server's custom proto directories",
+								"items": {
+									"type": "string"
+								}
 							}
 						}
 					}
@@ -57,7 +67,7 @@
 					],
 					"description": "Specify geliver app theme"
 				},
-				"geliver.edtior_theme": {
+				"geliver.editor_theme": {
 					"type": "string",
 					"default": "dracula",
 					"enum": [
@@ -111,14 +121,20 @@
 		"package": "vsce package"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.55.0",
 		"@types/glob": "^7.1.3",
 		"@types/mocha": "^8.0.4",
 		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.55.0",
 		"eslint": "^7.19.0",
 		"glob": "^7.1.6",
 		"mocha": "^8.2.1",
 		"typescript": "^4.1.3",
 		"vscode-test": "^1.5.0"
+	},
+	"dependencies": {
+		"@faker-js/faker": "^6.0.0-alpha.6",
+		"@grpc/grpc-js": "^1.5.5",
+		"google-proto-files": "^2.5.0",
+		"protobufjs": "^6.11.2"
 	}
 }
