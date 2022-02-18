@@ -4,7 +4,7 @@
 
 # geliver 
 
-Geliver UI support for vscode editor, natively support with `.proto` files.
+Geliver UI support for vscode editor, natively support with `.proto` files. But if you need to have a complete feature still suggest to use [Postman](https://www.postman.com/).
 
 ## Features
 
@@ -13,6 +13,11 @@ Geliver UI support for vscode editor, natively support with `.proto` files.
 * App and Editor Theme
 * Auto import endpoints from servers
 * Import & Export Data ( currently not available in vscode webview )
+* Only support UnaryCall now
+
+## Todo
+
+* Implement client-streaming, server-streaming, and bidirectional-streaming gRPC methods
 
 ## Requirements
 
