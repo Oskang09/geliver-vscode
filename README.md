@@ -31,11 +31,9 @@ This extension contributes the following settings:
 * `geliver.app_theme`: default app theme 
 * `geliver.editor_theme`: default editor theme
 
-## Example Settings
+## Example Settings & Screenshot
 
 ![structure](https://user-images.githubusercontent.com/15674107/154677370-9b7cea2e-40d7-4dcf-854e-ee723726166d.png)
-
-## Example
 
 ![image](https://user-images.githubusercontent.com/15674107/154681515-d282167b-12c8-467f-b254-a35a72a7bd65.png)
 
