@@ -15,14 +15,6 @@ Geliver UI support for vscode editor, natively support with `.proto` files. But 
 * Import & Export Data ( currently not available in vscode webview )
 * Only support UnaryCall now
 
-## Todo
-
-* Implement client-streaming, server-streaming, and bidirectional-streaming gRPC methods
-
-## Requirements
-
-* Support basic GRPC server with `.proto` files generation
-
 ## Extension Settings
 
 This extension contributes the following settings:
@@ -36,11 +28,6 @@ This extension contributes the following settings:
 ![structure](https://user-images.githubusercontent.com/15674107/154677370-9b7cea2e-40d7-4dcf-854e-ee723726166d.png)
 
 ![image](https://user-images.githubusercontent.com/15674107/154681515-d282167b-12c8-467f-b254-a35a72a7bd65.png)
-
-## Known Issues
-
-1. Currently webview is not able to import & export data.
-2. Data not cached since using IndexedDB. In future maybe can use `dexie-cloud`.
 
 ## Advanced: Faker Data Generation
 
@@ -58,4 +45,13 @@ message ExampleRequest {
     string OrganizationID = 2 [(geliver)="name.findName"];
 }
 ```
+
+## Todo
+
+* Implement client-streaming, server-streaming, and bidirectional-streaming gRPC methods
+
+## Known Issues
+
+1. Currently webview is not able to import & export data.
+2. Data not cached since using IndexedDB. In future maybe can use `dexie-cloud`.
 
