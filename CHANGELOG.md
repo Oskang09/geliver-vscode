@@ -16,3 +16,15 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.0.5]
 
 - Fix unable open `geliver` ui
+
+## [0.1.0]
+
+- Now native support for `.proto` files
+- New configuration `geliver.protos`
+- Remove configuration `geliver.servers`
+- Fixed `geliver.editor_theme` typo
+- Fixed app theme & editor theme not updating to workspace settings
+
+## [0.1.1]
+
+- Reduce bundle size by remove development files
