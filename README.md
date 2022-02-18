@@ -24,7 +24,7 @@ This extension contributes the following settings:
 
 ## Example Settings
 
-
+![structure](https://user-images.githubusercontent.com/15674107/154677370-9b7cea2e-40d7-4dcf-854e-ee723726166d.png)
 
 ## Known Issues
 
