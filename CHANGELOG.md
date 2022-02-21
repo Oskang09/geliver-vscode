@@ -33,3 +33,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Reduce bundle size
 - Remove service worker registration on webview
+
+# [0.1.3]
+
+- Extract `service.js` code for bugfix, unable get valid response

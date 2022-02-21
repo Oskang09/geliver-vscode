@@ -5,6 +5,7 @@ const { faker } = require('@faker-js/faker');
 const protobuf = require('protobufjs');
 const grpc = require('@grpc/grpc-js');
 const googleFiles = require('google-proto-files');
+const Service = require('./service');
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -141,11 +142,11 @@ function activate(context) {
 							arg => arg,
 							arg => arg,
 							requestData,
-							callback
+							callback,
 						)
 					}
 
-					const rpcClient = service.create(rpcImpl, false, false);
+					const rpcClient = new Service(rpcImpl, false, false);
 					services[proto['name']] = function (endpoint, body) {
 						return new Promise((resolve, reject) => {
 							const methodDefinition = service['methods'][endpoint]
@@ -203,7 +204,10 @@ function activate(context) {
 						case "grpc.call":
 							services[payload.service](payload.endpoint, payload.body)
 								.then(result => {
-									panel.webview.postMessage({ responseTo: response, payload: { error: false, result } })
+									panel.webview.postMessage({
+										responseTo: response,
+										payload: { error: false, result }
+									})
 								})
 								.catch(error => {
 									let result = {};

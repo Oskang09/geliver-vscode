@@ -106,7 +106,6 @@ function Geliver() {
         window.addEventListener('message', async (event) => {
             const { responseTo, payload } = event.data || {};
             if (responseTo == resId) {
-
                 if (payload.error) {
                     setError(payload.message);
                 }
